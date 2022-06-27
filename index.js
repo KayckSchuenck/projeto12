@@ -110,7 +110,7 @@ server.post('/status',async (req,res)=>{
     }
 })
 
-setInterval(async () => {
+setInterval(async (req,res) => {
     try{
         const tempo=Date.now()-10000
         const search=await db.collection('participantes').find({ lastStatus: { $lte:tempo} }).toArray()
